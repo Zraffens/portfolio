@@ -28,6 +28,7 @@ const ProjectShowcase = ({ title, subtitle, projectImage, themeColor }) => {
         <div className="absolute inset-0 rounded-2xl border border-white/10">
           <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent" />
         </div>
+        <div className="absolute inset-[16px] rounded-2xl bg-black" />
 
         {/* Inner border with gap */}
         <div className="absolute inset-[8px] rounded-xl border border-white/10">
@@ -36,7 +37,7 @@ const ProjectShowcase = ({ title, subtitle, projectImage, themeColor }) => {
         </div>
         {/* Default gradient */}
         <div
-          className="absolute inset-[5px] rounded-xl bg-[#111]"
+          className="absolute inset-[1px] rounded-xl bg-[#111]"
           style={{
             background:
               "radial-gradient(circle at top, rgba(255, 255, 255, 0.1), transparent 40%)",
@@ -45,7 +46,7 @@ const ProjectShowcase = ({ title, subtitle, projectImage, themeColor }) => {
 
         {/* Hovered gradient with animated opacity */}
         <motion.div
-          className="absolute inset-[5px] rounded-xl bg-[#111]"
+          className="absolute inset-[8px] rounded-xl bg-[#111]"
           style={{
             background: `radial-gradient(circle at top, ${themeColor}80, ${themeColor}66, transparent 90%)`,
           }}
