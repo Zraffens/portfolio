@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Navbar from "../components/navbar";
+import ProjectShowcase from "../components/showcase";
+import farmbuddy from "../assets/farmbuddy.png"
 
 const LandingPage = () => {
   const [text, setText] = useState("");
@@ -64,6 +66,7 @@ const LandingPage = () => {
         {/* Content of the next section */}
         <Navbar />
       </div>
+      <ProjectShowcase title="Farmbuddy" subtitle="farmbuddy aaaa" projectImage={farmbuddy} />
     </div>
   );
 };
