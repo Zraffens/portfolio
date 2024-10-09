@@ -31,10 +31,31 @@ const ProjectShowcase = ({ title, subtitle, projectImage, themeColor }) => {
         <div className="absolute inset-[16px] rounded-2xl bg-black" />
 
         {/* Inner border with gap */}
-        <div className="absolute inset-[8px] rounded-xl border border-white/10">
-          <div className="absolute inset-0 bg-[#111]" />
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/70 to-transparent" />
-        </div>
+        <motion.div
+          className="absolute inset-[8px] rounded-xl border"
+          initial={{ borderColor: "rgba(255, 255, 255, 0.2)" }}
+          animate={{
+            borderColor: isHovered
+              ? "rgba(255, 255, 255, 0.5)"
+              : "rgba(255, 255, 255, 0.2)",
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div
+            className="absolute top-0 left-0 right-0 h-[1px]"
+            initial={{
+              background:
+                "linear-gradient(to right, transparent, rgba(255, 255, 255, 0.7), transparent)",
+            }}
+            animate={{
+              background: isHovered
+                ? "linear-gradient(to right, transparent, rgba(255, 255, 255, 1), transparent)"
+                : "linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent)",
+            }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.div>
+
         {/* Default gradient */}
         <div
           className="absolute inset-[1px] rounded-xl bg-[#111]"
@@ -63,7 +84,12 @@ const ProjectShowcase = ({ title, subtitle, projectImage, themeColor }) => {
               <h2 className="text-xl font-semibold text-white mb-2">{title}</h2>
               <p className="text-sm text-gray-400">{subtitle}</p>
             </div>
-            <ChevronRight className="text-white/50" size={24} />
+            <motion.div
+              animate={{ x: isHovered ? 10 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ChevronRight className="text-white/50" size={36} />
+            </motion.div>
           </div>
 
           {/* Project preview */}
