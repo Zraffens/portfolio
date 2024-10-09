@@ -15,6 +15,9 @@ const ProjectShowcase = ({ title, subtitle, projectImage, themeColor }) => {
         transition={{ duration: 0.5 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        style={{
+          "--theme-color": themeColor,
+        }}
       >
         {/* Vignette effect */}
         <div
@@ -22,19 +25,34 @@ const ProjectShowcase = ({ title, subtitle, projectImage, themeColor }) => {
         />
 
         {/* Outer border */}
-        <div className="absolute inset-0 rounded-2xl border border-white/10" />
+        <div className="absolute inset-0 rounded-2xl border border-white/10">
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/90 to-transparent" />
+        </div>
 
         {/* Inner border with gap */}
-        <div className="absolute inset-[3px] rounded-xl border border-white/20 bg-[#111]" />
-        <motion.div
-          className={`absolute inset-[5px] rounded-xl border border-white/30 bg-[#111]`}
-          animate={{
-            background: isHovered
-              ? `radial-gradient(circle at top,  ${themeColor}cc, ${themeColor}33, transparent 100%  )` // 4d is 30% opacity in hex
-              : "radial-gradient(circle at top, rgba(255, 255, 255, 0.6), transparent 70%)",
+        <div className="absolute inset-[8px] rounded-xl border border-white/10">
+          <div className="absolute inset-0 bg-[#111]" />
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/70 to-transparent" />
+        </div>
+        {/* Default gradient */}
+        <div
+          className="absolute inset-[5px] rounded-xl bg-[#111]"
+          style={{
+            background:
+              "radial-gradient(circle at top, rgba(255, 255, 255, 0.1), transparent 40%)",
           }}
-          transition={{ background: { duration: 0.3, ease: "easeInOut" } }}
-        ></motion.div>
+        />
+
+        {/* Hovered gradient with animated opacity */}
+        <motion.div
+          className="absolute inset-[5px] rounded-xl bg-[#111]"
+          style={{
+            background: `radial-gradient(circle at top, ${themeColor}80, ${themeColor}66, transparent 90%)`,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        />
 
         {/* Content container */}
         <div className="relative p-8">
