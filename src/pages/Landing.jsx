@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Navbar from "../components/navbar";
 import ProjectShowcase from "../components/showcase";
-import farmbuddy from "../assets/farmbuddy.png"
+import farmbuddy from "../assets/farmbuddy.png";
 
 const LandingPage = () => {
   const [text, setText] = useState("");
-  const text1 = `hi I'm Abhinav`
-  const text2 = `I like to build stuffs`
+  const text1 = `hi I'm Abhinav`;
+  const text2 = `I like to build stuffs`;
   const fullText = `hii I'm Abhinav\nI like to build stuffs`;
 
   useEffect(() => {
@@ -66,7 +66,12 @@ const LandingPage = () => {
         {/* Content of the next section */}
         <Navbar />
       </div>
-      <ProjectShowcase title="Farmbuddy" subtitle="farmbuddy aaaa" projectImage={farmbuddy} />
+      <ProjectShowcase
+        title="Farmbuddy"
+        subtitle="farmbuddy aaaa"
+        projectImage={farmbuddy}
+        themeColor="#ccf2d9"
+      />
     </div>
   );
 };
