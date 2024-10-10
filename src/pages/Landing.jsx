@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import Navbar from "../components/navbar";
 import ProjectShowcase from "../components/showcase";
 import farmbuddy from "../assets/farmbuddy.png";
+import typrrr from "../assets/typrrr.png";
 
 const LandingPage = () => {
   const [text, setText] = useState("");
@@ -66,6 +67,12 @@ const LandingPage = () => {
         {/* Content of the next section */}
         <Navbar />
       </div>
+      <ProjectShowcase
+        title="Typrrr"
+        subtitle="Typrrr aaaa"
+        projectImage={typrrr}
+        themeColor="#35846a"
+      />
       <ProjectShowcase
         title="Farmbuddy"
         subtitle="farmbuddy aaaa"
